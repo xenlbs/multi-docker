@@ -10,10 +10,10 @@ script:
   - docker run -e CI=true vfor/react-test npm test
 
 after_sucess:
-  - docker build -t vfor/multi-client -f ./client
-  - docker build -t vfor/multi-nginx -f ./nginx
-  - docker build -t vfor/multi-server -f ./server
-  - docker build -t vfor/multi-worker -f ./worker
+  - docker build -t vfor/multi-client ./client
+  - docker build -t vfor/multi-nginx ./nginx
+  - docker build -t vfor/multi-server ./server
+  - docker build -t vfor/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push images
